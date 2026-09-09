@@ -1,6 +1,8 @@
 # Uso Local de angLOXg
 
-Esta sección detalla cómo compilar y probar el intérprete Lox directamente en tu terminal. El motor está construido 100% en Go, sin dependencias externas, asegurando portabilidad y fácil ejecución.
+Esta sección detalla cómo compilar y probar el intérprete "Lox" de forma local.
+
+El motor está construido 100% en "Go".
 
 ## Prerrequisitos
 
