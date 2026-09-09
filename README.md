@@ -1,4 +1,6 @@
-![angLOXg Banner](data/images/banner.png)
+<div align="center">
+  <img src="data/images/banner.png" alt="angLOXg Banner">
+</div>
 
 Un intérprete del lenguaje Lox escrito puramente en Go, desarrollado como "Trabajo Práctico" para la materia "Lenguajes y compiladores I ((TB027))" de la Universidad de Buenos Aires (FIUBA).
 
