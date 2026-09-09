@@ -1,4 +1,6 @@
 title: angLOXg
-description: Implementación de Lox en Go para el Trabajo Profesional
+description: Implementación de Lox en Go
 theme: just-the-docs
-url: "https://tu-usuario.github.io/angLOXg"
+color_scheme: dark
+url: "https://FelipeAscencio.github.io"
+baseurl: "/angLOXg"
