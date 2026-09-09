@@ -2,20 +2,63 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>angLOXg - Playground</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>angLOXg - Web Playground</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Script que permite a JS interactuar con Go Wasm -->
-    <script src="wasm_exec.js"></script> 
 </head>
 <body>
-    <h1>angLOXg Web Playground</h1>
-    <textarea id="code" rows="5" cols="50">print "¡Hola desde la Web!";</textarea>
-    <br>
-    <button id="runBtn" disabled>Cargando Motor...</button>
-    
-    <h2>Salida:</h2>
-    <pre id="output"></pre>
+    <div class="playground-container">
+        <!-- Cabecera -->
+        <header class="playground-header">
+            <a href="../" class="banner-link" title="Volver a la documentación">
+                <img src="../data/images/banner.png" alt="angLOXg Banner" class="responsive-banner">
+            </a>
+        </header>
+        <!-- Editor de Scripts (Arriba) -->
+        <div class="section-title"><h2>Editor de scripts</h2></div>
+        <div class="playground-grid">
+            <div class="panel">
+                <div class="panel-header">
+                    <span>Código fuente (Lox)</span>
+                    <div class="button-group-sm">
+                        <button id="btn-example-1" class="btn-secondary">Ejemplo print</button>
+                        <button id="btn-example-2" class="btn-secondary">Ejemplo función</button>
+                    </div>
+                </div>
+                <textarea id="code-input" placeholder="Escribí tu código Lox acá..."></textarea>
+                <div class="panel-actions">
+                    <button id="run-btn" class="btn-primary">▶ Ejecutar script</button>
+                    <button id="clear-btn" class="btn-secondary">🗑 Limpiar</button>
+                </div>
+            </div>
 
+            <div class="panel">
+                <div class="panel-header">
+                    <span>Salida del script</span>
+                </div>
+                <pre id="output" class="console-output">angLOXg v1.0 - Ejecutá un script para ver los resultados...</pre>
+            </div>
+        </div>
+
+        <!-- Consola Interactiva / REPL -->
+        <div class="section-title" style="margin-top: 2.5rem;"><h2>Consola interactiva (REPL en vivo)</h2></div>
+        <div class="panel full-width">
+            <div class="panel-header">
+                <span>Terminal de Lox</span>
+                <button id="repl-clear-btn" class="btn-secondary">Limpiar Terminal</button>
+            </div>
+            <div id="repl-history" class="repl-history">
+                <div class="repl-line text-muted">angLOXg Terminal v1.0. Probá: <code>print 2 + 2;</code> o <code>var x = 3;</code></div>
+            </div>
+            <div class="repl-input-container">
+                <span class="repl-prompt">&gt;</span>
+                <input type="text" id="repl-input" placeholder="Escribí una sentencia y presioná Enter..." autocomplete="off" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts de WebAssembly -->
+    <script src="wasm_exec.js"></script>
     <script src="app.js"></script>
 </body>
 </html>

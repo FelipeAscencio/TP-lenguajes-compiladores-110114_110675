@@ -1,2 +1,261 @@
-body { font-family: sans-serif; padding: 2rem; background: #f4f4f4; }
-pre { background: #333; color: #0f0; padding: 1rem; border-radius: 5px; }
+/* Estilos del editor de scripts y la consola */
+:root {
+    --bg-color: #18181b;
+    --panel-bg: #27272a;
+    --border-color: #3f3f46;
+    --text-color: #f4f4f5;
+    --text-muted: #a1a1aa;
+    --accent-color: #0ea5e9;
+    --accent-hover: #0284c7;
+    --danger-color: #ef4444;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    padding: 2rem;
+}
+
+.playground-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.playground-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+.playground-header h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.back-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.back-link:hover {
+    color: var(--accent-color);
+}
+
+.playground-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .playground-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.panel {
+    background-color: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.panel-header {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+textarea#code-input {
+    width: 100%;
+    height: 350px;
+    background-color: transparent;
+    color: var(--text-color);
+    border: none;
+    padding: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    resize: vertical;
+    outline: none;
+}
+
+.panel-actions {
+    padding: 0.75rem 1rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+    background-color: var(--border-color);
+    color: var(--text-color);
+}
+
+.button-group-sm {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.console-output {
+    background-color: #121214;
+    color: #4ade80;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    padding: 1rem;
+    height: 395px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.section-title {
+    margin-bottom: 0.75rem;
+}
+
+.section-title h2 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    border-left: 3px solid var(--accent-color);
+    padding-left: 0.5rem;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+/* Estilos de la Terminal REPL */
+.repl-history {
+    background-color: #121214;
+    color: var(--text-color);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    padding: 1rem;
+    height: 250px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.repl-line {
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.repl-line.input {
+    color: var(--text-muted);
+}
+
+.repl-line.output {
+    color: #4ade80;
+}
+
+.repl-line.error {
+    color: var(--danger-color);
+}
+
+.text-muted {
+    color: var(--text-muted);
+}
+
+.repl-input-container {
+    background-color: #18181b;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+}
+
+.repl-prompt {
+    font-family: var(--font-mono);
+    color: var(--accent-color);
+    font-weight: bold;
+    margin-right: 0.75rem;
+    font-size: 1rem;
+}
+
+input#repl-input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    color: var(--text-color);
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    outline: none;
+}
+
+/* Estilos del Banner */
+.playground-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1.5rem;
+}
+
+.banner-link {
+    display: block;
+    width: 100%;
+    max-width: 550px;
+    transition: opacity 0.2s ease;
+}
+
+.banner-link:hover {
+    opacity: 0.9;
+}
+
+.responsive-banner {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
