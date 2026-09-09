@@ -1,10 +1,12 @@
+//go:build js && wasm
+
 package main
 
 import (
 	"bytes"
 	"syscall/js"
 
-	"github.com/tu-usuario/angLOXg/internal/lox"
+	"github.com/FelipeAscencio/angLOXg/internal/lox"
 )
 
 func runLoxWrapper(this js.Value, args []js.Value) any {
