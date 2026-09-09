@@ -1,0 +1,13 @@
+package main
+
+import (
+	"fmt"
+	"os"
+
+	"github.com/tu-usuario/angLOXg/internal/lox"
+)
+
+func main() {
+	fmt.Println("=== angLOXg CLI ===")
+	lox.Run("print 'Hola FIUBA';", os.Stdout)
+}
